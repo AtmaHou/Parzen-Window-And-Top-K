@@ -217,11 +217,8 @@ if __name__ == "__main__":
     if draw_pic:
         data.show_data(data.data)
         data.show_data(all_class_test_data)
-
-    # ========= Parzen =========
+    print "############## Parzen ################"
     parzen_experiment(data, all_class_test_data)
-
-    # ======== TopK ========
+    print "############## Top K ################"
     topk_experiment(data, all_class_test_data)
-
     pause()
