@@ -138,8 +138,13 @@ class TopK(NonParamMethod):
 def parzen_experiment(data, all_class_test_data):
     pw = Parzen()
     if draw_pic:
-        pw.show_distribution(training_data=data.data[0], model_setting=100)
-        pw.show_distribution(training_data=data.data[1], model_setting=100)
+        pw.show_distribution(training_data=data.data[0][:10], model_setting=100)
+        pw.show_distribution(training_data=data.data[0][:100], model_setting=100)
+        pw.show_distribution(training_data=data.data[0][:500], model_setting=100)
+        print "=========== class 2 ============="
+        pw.show_distribution(training_data=data.data[1][:10], model_setting=100)
+        pw.show_distribution(training_data=data.data[1][:100], model_setting=100)
+        pw.show_distribution(training_data=data.data[1][:500], model_setting=100)
 
     # testing
     # fix data amount
@@ -176,8 +181,15 @@ def parzen_experiment(data, all_class_test_data):
 def topk_experiment(data, all_class_test_data):
     tk = TopK()
     if draw_pic:
-        tk.show_distribution(training_data=data.data[0], model_setting=2)
-        tk.show_distribution(training_data=data.data[1], model_setting=2)
+        tk.show_distribution(training_data=data.data[0][:10], model_setting=5)
+        tk.show_distribution(training_data=data.data[0][:100], model_setting=5)
+        tk.show_distribution(training_data=data.data[0][:500], model_setting=5)
+        tk.show_distribution(training_data=data.data[0][:1000], model_setting=5)
+        print '======= class 2 ========='
+        tk.show_distribution(training_data=data.data[1][:10], model_setting=5)
+        tk.show_distribution(training_data=data.data[1][:100], model_setting=5)
+        tk.show_distribution(training_data=data.data[1][:500], model_setting=5)
+        tk.show_distribution(training_data=data.data[1][:1000], model_setting=5)
         # testing
         # fix data amount
     model_setting_lst = [0.01, 0.1, 1, 2, 5, 10, 50, 100, 1000]
@@ -218,7 +230,7 @@ if __name__ == "__main__":
         data.show_data(data.data)
         data.show_data(all_class_test_data)
     print "############## Parzen ################"
-    parzen_experiment(data, all_class_test_data)
+    # parzen_experiment(data, all_class_test_data)
     print "############## Top K ################"
     topk_experiment(data, all_class_test_data)
-    pause()
+    # pause()
